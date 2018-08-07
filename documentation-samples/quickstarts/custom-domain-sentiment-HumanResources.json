@@ -75,7 +75,7 @@
   ],
   "composites": [
     {
-      "name": "requestemployeemove",
+      "name": "RequestEmployeeMove",
       "children": [
         "datetimeV2",
         "Locations::Destination",
@@ -127,11 +127,11 @@
       "roles": []
     },
     {
-      "name": "number",
+      "name": "keyPhrase",
       "roles": []
     },
     {
-      "name": "keyPhrase",
+      "name": "number",
       "roles": []
     }
   ],
@@ -156,7 +156,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 0,
           "endPos": 21
         },
@@ -172,7 +172,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 0,
           "endPos": 21
         },
@@ -245,7 +245,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 23,
           "endPos": 61
         },
@@ -326,7 +326,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 7,
           "endPos": 26
         },
@@ -342,7 +342,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 9,
           "endPos": 52
         },
@@ -598,7 +598,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 5,
           "endPos": 38
         },
@@ -619,7 +619,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 5,
           "endPos": 39
         },
@@ -640,7 +640,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 5,
           "endPos": 27
         },
@@ -656,7 +656,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 3,
           "endPos": 35
         },
@@ -677,7 +677,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 3,
           "endPos": 64
         },
@@ -777,7 +777,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 21,
           "endPos": 49
         },
@@ -808,7 +808,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 6,
           "endPos": 28
         },
@@ -854,7 +854,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 6,
           "endPos": 40
         },
@@ -870,7 +870,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 6,
           "endPos": 30
         },
@@ -1021,7 +1021,7 @@
       "intent": "MoveEmployee",
       "entities": [
         {
-          "entity": "requestemployeemove",
+          "entity": "RequestEmployeeMove",
           "startPos": 0,
           "endPos": 16
         },
