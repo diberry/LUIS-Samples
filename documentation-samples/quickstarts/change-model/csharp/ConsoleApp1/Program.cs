@@ -10,13 +10,13 @@ namespace AddUtterances
     class Program
     {
         // NOTE: Replace this example LUIS application ID with the ID of your LUIS application.
-        static string appID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        static string appID = "5446f0ee-4fab-44cd-aee4-0cb9143d67ae";
 
         // NOTE: Replace this example LUIS application version number with the version number of your LUIS application.
         static string appVersion = "0.1";
 
         // NOTE: Replace this example LUIS authoring key with a valid key.
-        static string authoringKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        static string authoringKey = "fb3488ba06614b4985c1baa7a0af0376";
 
         static string host = "https://westus.api.cognitive.microsoft.com";
         static string path = "/luis/api/v2.0/apps/" + appID + "/versions/" + appVersion + "/";
@@ -149,6 +149,8 @@ The contents of <input file> must be in the format described at: https://aka.ms/
             }
             else
             {
+                AddUtterances(args[0]).Wait();
+
                 if (true == String.Equals(args[0], "-train", StringComparison.OrdinalIgnoreCase))
                 {
                     if (args.Length > 1)
@@ -160,13 +162,9 @@ The contents of <input file> must be in the format described at: https://aka.ms/
                         Console.WriteLine(usage);
                     }
                 }
-                else if (true == String.Equals(args[0], "-status", StringComparison.OrdinalIgnoreCase))
+                if (true == String.Equals(args[0], "-status", StringComparison.OrdinalIgnoreCase))
                 {
                     Status().Wait();
-                }
-                else
-                {
-                    AddUtterances(args[0]).Wait();
                 }
             }
         }

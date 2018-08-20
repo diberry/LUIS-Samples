@@ -1,18 +1,34 @@
 ﻿[
   {
-    "text": "go to Seattle",
-    "intentName": "BookFlight",
+    "text": "turn on the yellow light in the living room",
+    "intentName": "HomeAutomation.TurnOn",
     "entityLabels": [
       {
-        "entityName": "Location::LocationTo",
-        "startCharIndex": 6,
-        "endCharIndex": 12
+        "entityName": "HomeAutomation.Device",
+        "startCharIndex": 19,
+        "endCharIndex": 23
+      },
+      {
+        "entityName": "HomeAutomation.Room",
+        "startCharIndex": 32,
+        "endCharIndex": 42
       }
     ]
   },
   {
-    "text": "book a flight",
-    "intentName": "BookFlight",
+    "text": "turn off the yellow light",
+    "intentName": "HomeAutomation.TurnOff",
+    "entityLabels": [
+      {
+        "entityName": "HomeAutomation.Device",
+        "startCharIndex": 20,
+        "endCharIndex": 24
+      }
+    ]
+  },
+  {
+    "text": "order a burger with cheese",
+    "intentName": "None",
     "entityLabels": []
   }
 ]
