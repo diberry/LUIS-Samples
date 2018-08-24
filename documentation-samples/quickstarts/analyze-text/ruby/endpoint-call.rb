@@ -14,6 +14,7 @@ appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"
 # The authoring key allows 1000 endpoint queries a month.
 endpointKey = "YOUR-KEY"
 
+
 # The endpoint URI below is for the West US region.
 # If you use a different region, update accordingly.
 host = "https://westus.api.cognitive.microsoft.com"
