@@ -9,6 +9,8 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Intent;
 
 namespace MicrosoftSpeechSDKSamples
 {
@@ -26,42 +28,54 @@ namespace MicrosoftSpeechSDKSamples
 
             // region must be empty string
             // must use same LUIS guid in both places
-            var factory = SpeechFactory.FromSubscription(luisSubscriptionKey, speechRegion);
+            var config = SpeechConfig.FromSubscription(luisSubscriptionKey, speechRegion);
 
             // Create an intent recognizer using microphone as audio input.
-            using (var recognizer = factory.CreateIntentRecognizer())
+            using (var recognizer = new IntentRecognizer(config))
             {
 
                 // Create a LanguageUnderstandingModel to use with the intent recognizer
-                var model = Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromSubscription(luisSubscriptionKey, luisAppId, luisRegion);
+                var model = LanguageUnderstandingModel.FromAppId(luisAppId);
 
                 // Add intents from your LU model to your intent recognizer
-                // These intents are based on the Human Resources model imported at
-                // ../../quickstarts/HumanResources.json
-                recognizer.AddIntent("None", model, "None");
-                recognizer.AddIntent("FindForm", model, "FindForm");
-                recognizer.AddIntent("GetEmployeeBenefits", model, "GetEmployeeBenefits");
-                recognizer.AddIntent("GetEmployeeOrgChart", model, "GetEmployeeOrgChart");
-                recognizer.AddIntent("MoveAssetsOrPeople", model, "MoveAssetsOrPeople");
+                recognizer.AddIntent(model, "None", "None");
+                recognizer.AddIntent(model, "FindForm", "FindForm");
+                recognizer.AddIntent(model, "GetEmployeeBenefits", "GetEmployeeBenefits");
+                recognizer.AddIntent(model, "GetEmployeeOrgChart", "GetEmployeeOrgChart");
+                recognizer.AddIntent(model, "MoveAssetsOrPeople", "MoveAssetsOrPeople");
 
                 // Prompt the user to speak
                 Console.WriteLine("Say something...");
 
                 // Start recognition; will return the first result recognized
-                var result = await recognizer.RecognizeAsync().ConfigureAwait(false);
+                var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
 
-                // Check the reason returned
-                if (result.RecognitionStatus == RecognitionStatus.Recognized)
+                // Checks result.
+                if (result.Reason == ResultReason.RecognizedIntent)
                 {
-                    Console.WriteLine($"{result.ToString()}");
+                    Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+                    Console.WriteLine($"    Intent Id: {result.IntentId}.");
+                    Console.WriteLine($"    Language Understanding JSON: {result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)}.");
                 }
-                else if (result.RecognitionStatus == RecognitionStatus.NoMatch)
+                else if (result.Reason == ResultReason.RecognizedSpeech)
                 {
-                    Console.WriteLine("We didn't hear you say anything...");
+                    Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+                    Console.WriteLine($"    Intent not recognized.");
                 }
-                else if (result.RecognitionStatus == RecognitionStatus.Canceled)
+                else if (result.Reason == ResultReason.NoMatch)
                 {
-                    Console.WriteLine($"There was an error; reason {result.RecognitionStatus}-{result.RecognizedText}");
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                }
+                else if (result.Reason == ResultReason.Canceled)
+                {
+                    var cancellation = CancellationDetails.FromResult(result);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    }
                 }
             }
         }
