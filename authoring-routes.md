@@ -1,7 +1,8 @@
  # Authoring Routes
 
-Bold items = updated as of Ignite 2018
+Legend:
 
+Bold items = updated as of Ignite 2018
  * /apps/  [[post](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f),[get](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c30)]
  * /apps/assistants  [[get](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32)]
  * /apps/cultures  [[get](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c35)]
